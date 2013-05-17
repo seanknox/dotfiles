@@ -1,0 +1,45 @@
+[user]
+	name = Sean Knox
+	email = knoxville@gmail.com
+
+[color]
+  ui = auto
+
+[core]
+  #editor = subl
+  autocrlf = input
+
+[alias]
+  st = status
+  a = add
+  aa = add --all
+  ci = "commit -m"
+  br = branch
+  co = checkout
+  df = diff
+  pr = pull --rebase
+  lg = "!source ~/.githelpers && pretty_git_log"
+  hist = log --pretty=format:\"%Cgreen%h%Creset %Cblue%ad%Creset %C(magenta)%cn%Creset%C(yellow)%d%Creset%n        %s\" --graph --date=local
+  cp = cherry-pick
+  diffs = diff --cached
+  rp = remote prune
+  rpo = remote prune origin
+  gcp = gc --prune
+  panic = !tar cvf ../git_panic.tar .
+  pom = push origin master
+  shown = show --pretty="format:" --name-only
+
+[push]
+  default = current
+
+[difftool "Kaleidoscope"]
+
+[difftool]
+  prompt = false
+
+[diff]
+	tool = Kaleidoscope
+[difftool "Kaleidoscope"]
+	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
+[core]
+	autocrlf = input
