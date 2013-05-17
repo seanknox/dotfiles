@@ -1,5 +1,3 @@
-[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
-
 export AWS_ACCESS_KEY=
 export AWS_SECRET_KEY=
 export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home/
@@ -13,7 +11,7 @@ export SSL_CERT_FILE=/usr/local/etc/openssl/cacert.pem
 export EDITOR=mvim
 
 # Use Hub to make git magical
-alias git=hub
+alias git=/opt/boxen/homebrew/bin/hub
 
 # Git
 git config --global user.name "Sean Knox"
@@ -57,3 +55,4 @@ parse_git_branch() {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\ →\ \1/'
 }
 
+[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
