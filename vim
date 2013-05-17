@@ -1,1 +1,0 @@
-/Users/sean/vim-config/.vim
