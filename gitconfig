@@ -6,8 +6,8 @@
   ui = auto
 
 [core]
-  #editor = subl
-  autocrlf = input
+	autocrlf = input
+ excludesfile = /opt/boxen/config/git/gitignore
 
 [alias]
   st = status
@@ -43,3 +43,10 @@
 	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
 [core]
 	autocrlf = input
+ excludesfile = /opt/boxen/config/git/gitignore
+
+[credential]
+helper = /opt/boxen/bin/boxen-git-credential
+
+[hub]
+protocol = https
