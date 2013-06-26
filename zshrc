@@ -12,6 +12,7 @@ fi
 
 # Customize to your needs...
 
+export CODE_HOME=~/code
 export AWS_ACCESS_KEY=
 export AWS_SECRET_KEY=
 export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home/
