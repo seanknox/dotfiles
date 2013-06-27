@@ -10,6 +10,10 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE=~/.zhistory
+
 # Customize to your needs...
 
 export CODE_HOME=~/code
@@ -65,6 +69,7 @@ alias pgstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 alias findn='find . -name'
 alias line_count='xargs wc -l | sort -n -r'
 alias v='mvim .'
+alias history='history 1'
 
 # parse_git_branch() {
 #   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\ →\ \1/'
