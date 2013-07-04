@@ -74,5 +74,3 @@ alias history='history 1'
 # parse_git_branch() {
 #   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\ →\ \1/'
 # }
-
-[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh

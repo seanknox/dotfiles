@@ -9,6 +9,8 @@
 # Browser
 #
 
+[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
+
 if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
 fi
@@ -17,8 +19,8 @@ fi
 # Editors
 #
 
-export EDITOR='nano'
-export VISUAL='nano'
+export EDITOR='vim'
+export VISUAL='vim'
 export PAGER='less'
 
 #
