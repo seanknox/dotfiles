@@ -54,6 +54,7 @@ alias gsf='git show --pretty="format:" --name-only'
 alias be='bundle exec'
 alias rc='rails console'
 alias rs='rails server'
+alias devlog='tail -f log/development.log'
 
 # Misc Ruby Aliases
 alias fs='foreman start -f'
