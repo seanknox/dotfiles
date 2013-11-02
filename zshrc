@@ -16,6 +16,9 @@ HISTFILE=~/.zhistory
 
 # Customize to your needs...
 
+# MAKE_OPTS to use 4 cores
+export MAKE_OPTS="-j 4 -O3"
+
 export CODE_HOME=~/code
 export AWS_ACCESS_KEY=
 export AWS_SECRET_KEY=
@@ -71,6 +74,9 @@ alias findn='find . -name'
 alias line_count='xargs wc -l | sort -n -r'
 alias v='mvim .'
 alias history='history 1'
+alias bower='noglob bower'
+
+alias resh='exec $SHELL -l'
 
 # parse_git_branch() {
 #   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\ →\ \1/'
