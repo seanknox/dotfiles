@@ -30,7 +30,8 @@ export CLICOLOR=1
 # export PS1='@\h \[\e[1;31m\]\W\[\e[1;33m\]$(parse_git_branch)\[\e[0;39m\]> '
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD}\007"'
 # export SSL_CERT_FILE=/usr/local/etc/openssl/cacert.pem
-export EDITOR=mvim
+export EDITOR=vim
+export HOMEBREW_GITHUB_API_TOKEN=
 
 # Use Hub to make git magical
 alias git=/opt/boxen/homebrew/bin/hub
