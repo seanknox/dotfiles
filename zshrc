@@ -32,6 +32,8 @@ export PROMPT_COMMAND='echo -ne "\033]0;${PWD}\007"'
 # export SSL_CERT_FILE=/usr/local/etc/openssl/cacert.pem
 export EDITOR=vim
 export HOMEBREW_GITHUB_API_TOKEN=
+# needed for Boxen redis to work in some Rails apps
+export REDISTOGO_URL=$BOXEN_REDIS_URL
 
 # Use Hub to make git magical
 alias git=/opt/boxen/homebrew/bin/hub
