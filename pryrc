@@ -7,6 +7,12 @@ Pry.config.prompt = proc do |obj, level, _|
   "#{prompt} (#{obj})> "
 end
 
+# vim FTW
+Pry.config.editor = "gvim --nofork"
+
+# My pry is polite
+Pry.config.hooks.add_hook(:after_session, :say_bye) { puts "bye-bye" }
+
 #Reformat Result
 begin
   require 'awesome_print' 
@@ -20,7 +26,3 @@ Pry.config.commands.alias_command "c", "continue"
 Pry.config.commands.alias_command "n", "next"
 Pry.config.commands.alias_command "e", "exit"
 
-## Useful Immutable Objects
-def a
-  (1..6).to_a
-end
