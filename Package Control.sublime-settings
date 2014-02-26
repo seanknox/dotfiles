@@ -1,0 +1,34 @@
+{
+	"installed_packages":
+	[
+		"CoffeeScript",
+		"CTags",
+		"DashDoc",
+		"eco",
+		"Git",
+		"GitGutter",
+		"GitHub Flavored Markdown Preview",
+		"Handlebars",
+		"Jasmine",
+		"LESS",
+		"Markdown Extended",
+		"Package Control",
+		"Quick File Move",
+		"RSpec",
+		"Ruby Slim",
+		"RubyTest",
+		"sublime-file-operations",
+		"sublime-text-puppet",
+		"SublimeBlockCursor",
+		"SublimeLinter",
+		"SublimeLinter-html-tidy",
+		"SublimeLinter-jshint",
+		"SublimeLinter-json",
+		"SublimeLinter-rubocop",
+		"Theme - Soda",
+		"Theme - Sodarized",
+		"TidyHTML5",
+		"Tomorrow Color Schemes",
+		"VAlign"
+	]
+}
