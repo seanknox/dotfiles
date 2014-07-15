@@ -1,10 +1,12 @@
 {
 	"installed_packages":
 	[
+		"AdvancedNewFile",
 		"CoffeeScript",
 		"CTags",
 		"DashDoc",
 		"eco",
+		"Gist",
 		"Git",
 		"GitGutter",
 		"GitHub Flavored Markdown Preview",
@@ -14,9 +16,12 @@
 		"Markdown Extended",
 		"Package Control",
 		"Quick File Move",
+		"rbenv",
 		"RSpec",
 		"Ruby Slim",
 		"RubyTest",
+		"Search in Project",
+		"Solarized Color Scheme",
 		"sublime-file-operations",
 		"sublime-text-puppet",
 		"SublimeBlockCursor",
@@ -25,10 +30,12 @@
 		"SublimeLinter-jshint",
 		"SublimeLinter-json",
 		"SublimeLinter-rubocop",
+		"Surround",
 		"Theme - Soda",
 		"Theme - Sodarized",
 		"TidyHTML5",
 		"Tomorrow Color Schemes",
-		"VAlign"
+		"VAlign",
+		"Vintage Surround"
 	]
 }

@@ -1,7 +1,8 @@
 {
 	"auto_complete_commit_on_tab": true,
 	"bold_folder_labels": true,
-	"color_scheme": "Packages/Color Scheme - Default/Solarized (Dark).tmTheme",
+	"color_scheme": "Packages/Solarized Color Scheme/Solarized (Dark).tmTheme",
+	"draw_white_space": "all",
 	"ensure_newline_at_eof_on_save": true,
 	"file_exclude_patterns":
 	[
@@ -30,7 +31,6 @@
 	],
 	"folder_exclude_patterns":
 	[
-		"data",
 		".zeus.sock",
 		".git",
 		".svn",
@@ -41,11 +41,10 @@
 		"bundle",
 		".rbx",
 		"bin",
-		"script",
 		"tmp"
 	],
 	"font_face": "Source Code Pro",
-	"font_size": 16.0,
+	"font_size": 17.0,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
@@ -67,6 +66,5 @@
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"vintage_start_in_command_mode": true,
-	"word_wrap": false,
-	"draw_white_space": "all"
+	"word_wrap": true
 }
