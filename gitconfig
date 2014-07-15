@@ -18,7 +18,7 @@
   co = checkout
   df = diff
   pr = pull --rebase
-  lg = "!source ~/.githelpers && pretty_git_log"
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
   hist = log --pretty=format:\"%Cgreen%h%Creset %Cblue%ad%Creset %C(magenta)%cn%Creset%C(yellow)%d%Creset%n        %s\" --graph --date=local
   cp = cherry-pick
   diffs = diff --cached
@@ -28,6 +28,8 @@
   panic = !tar cvf ../git_panic.tar .
   pom = push origin master
   shown = show --pretty="format:" --name-only
+	up = "!git remote update -p; git merge --ff-only @{u}"
+	g = grep --break --heading --line-number
 
 [push]
   default = current
@@ -50,3 +52,11 @@ helper = /opt/boxen/bin/boxen-git-credential
 
 [hub]
 protocol = https
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[grep]
+	lineNumber = true

@@ -19,11 +19,11 @@ HISTFILE=~/.zhistory
 # MAKE_OPTS to use 4 cores
 export MAKE_OPTS="-j 4 -O3"
 
-export CODE_HOME=~/code
+export JAVA_HOME="$(/usr/libexec/java_home)"
 export AWS_ACCESS_KEY=
 export AWS_SECRET_KEY=
-export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home/
-export EC2_URL=https://ec2.us-west-1.amazonaws.com
+export EC2_HOME="/opt/boxen/homebrew/Cellar/ec2-api-tools/1.6.13.0/libexec"
+#export EC2_URL=https://ec2.us-west-1.amazonaws.com
 export GREP_OPTIONS='--color=auto'
 export EGREP_OPTIONS='--color=auto'
 export CLICOLOR=1
@@ -31,7 +31,6 @@ export CLICOLOR=1
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD}\007"'
 # export SSL_CERT_FILE=/usr/local/etc/openssl/cacert.pem
 export EDITOR=vim
-export HOMEBREW_GITHUB_API_TOKEN=
 export GITHUB_API_TOKEN=
 
 # Use Hub to make git magical
