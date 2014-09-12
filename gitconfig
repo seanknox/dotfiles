@@ -60,3 +60,5 @@ protocol = https
 	trustExitCode = true
 [grep]
 	lineNumber = true
+[heroku]
+	account = personal
