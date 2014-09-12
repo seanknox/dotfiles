@@ -1,7 +1,7 @@
 {
 	"auto_complete_commit_on_tab": true,
 	"bold_folder_labels": true,
-	"color_scheme": "Packages/Solarized Color Scheme/Solarized (Dark).tmTheme",
+	"color_scheme": "Packages/User/Solarized (Dark) (SL).tmTheme",
 	"draw_white_space": "all",
 	"ensure_newline_at_eof_on_save": true,
 	"file_exclude_patterns":
