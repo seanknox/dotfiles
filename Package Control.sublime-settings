@@ -2,7 +2,6 @@
 	"installed_packages":
 	[
 		"AdvancedNewFile",
-		"CoffeeScript",
 		"All Autocomplete",
 		"CTags",
 		"DashDoc",
@@ -12,13 +11,11 @@
 		"GitGutter",
 		"GitHub Flavored Markdown Preview",
 		"Handlebars",
-		"Jasmine",
 		"JavaScript Snippets",
 		"LESS",
 		"Markdown Extended",
 		"Package Control",
 		"Quick File Move",
-		"rbenv",
 		"RSpec",
 		"Ruby Slim",
 		"RubyTest",
@@ -35,7 +32,6 @@
 		"Surround",
 		"Theme - Soda",
 		"Theme - Sodarized",
-		"TidyHTML5",
 		"Tomorrow Color Schemes",
 		"VAlign",
 		"Vintage Surround"
