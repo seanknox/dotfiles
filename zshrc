@@ -17,11 +17,9 @@ HISTFILE=~/.zhistory
 # Customize to your needs...
 
 # MAKE_OPTS to use 4 cores
-export MAKE_OPTS="-j 4 -O3"
+export MAKE_OPTS="-j 8 -O3"
 
 export JAVA_HOME="$(/usr/libexec/java_home)"
-export AWS_ACCESS_KEY=
-export AWS_SECRET_KEY=
 export EC2_HOME="/opt/boxen/homebrew/Cellar/ec2-api-tools/1.6.13.0/libexec"
 #export EC2_URL=https://ec2.us-west-1.amazonaws.com
 export GREP_OPTIONS='--color=auto'
@@ -31,28 +29,10 @@ export CLICOLOR=1
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD}\007"'
 # export SSL_CERT_FILE=/usr/local/etc/openssl/cacert.pem
 export EDITOR=vim
-export GITHUB_API_TOKEN=
-
-# Use Hub to make git magical
-alias git=/opt/boxen/homebrew/bin/hub
 
 # Git
 git config --global user.name "Sean Knox"
 git config --global user.email "knoxville@gmail.com"
-
-# Git Aliases
-alias gc='git commit -m'
-alias ga='git add'
-alias gp='git push'
-alias gs='git status'
-alias gap='git add -p'
-alias gd='git difftool'
-alias gdc='git difftool --cached'
-alias gl='git hist'
-alias gl5='git hist -5'
-alias gl10='git hist -10'
-alias gsa='git show'
-alias gsf='git show --pretty="format:" --name-only'
 
 # Rails Aliases
 alias be='bundle exec'
@@ -60,20 +40,9 @@ alias rc='rails console'
 alias rs='rails server'
 alias devlog='tail -f log/development.log'
 
-# Misc Ruby Aliases
-alias fs='foreman start -f'
-alias sp='rspec -cfn'
-alias r='rake'
-alias z='zeus'
-
-# PostgreSQL Aliases
-alias pgstart='pg_ctl -D /usr/local/var/postgres -l logfile start'
-alias pgstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
-
 # Misc Aliases
 alias findn='find . -name'
 alias line_count='xargs wc -l | sort -n -r'
-alias v='mvim .'
 alias history='history 1'
 alias bower='noglob bower'
 
