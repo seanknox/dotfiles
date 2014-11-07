@@ -9,43 +9,13 @@
 	autocrlf = input
  excludesfile = /opt/boxen/config/git/gitignore
 
-[alias]
-  st = status
-  a = add
-  aa = add --all
-  ci = "commit -m"
-  br = branch
-  co = checkout
-  df = diff
-  pr = pull --rebase
-  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
-  hist = log --pretty=format:\"%Cgreen%h%Creset %Cblue%ad%Creset %C(magenta)%cn%Creset%C(yellow)%d%Creset%n        %s\" --graph --date=local
-  cp = cherry-pick
-  diffs = diff --cached
-  rp = remote prune
-  rpo = remote prune origin
-  gcp = gc --prune
-  panic = !tar cvf ../git_panic.tar .
-  pom = push origin master
-  shown = show --pretty="format:" --name-only
-	up = "!git remote update -p; git merge --ff-only @{u}"
-	g = grep --break --heading --line-number
-
-[push]
-  default = current
-
 [difftool "Kaleidoscope"]
-
+	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
 [difftool]
   prompt = false
 
 [diff]
 	tool = Kaleidoscope
-[difftool "Kaleidoscope"]
-	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
-[core]
-	autocrlf = input
- excludesfile = /opt/boxen/config/git/gitignore
 
 [credential]
 helper = /opt/boxen/bin/boxen-git-credential
@@ -60,5 +30,31 @@ protocol = https
 	trustExitCode = true
 [grep]
 	lineNumber = true
+ linenumber = true
 [heroku]
 	account = personal
+
+[alias]
+unstage = reset HEAD
+rpo = remote prune origin
+gpc = push --set-upstream origin $(git-branch-current 2> /dev/null)
+lol = log --graph --decorate --pretty=oneline --abbrev-commit
+aa = add --all
+pr = pull --rebase
+hist = log --pretty=format:'%Cgreen%h%Creset %Cblue%ad%Creset %C(magenta)%cn%Creset%C(yellow)%d%Creset%n        %s' --graph --date=local
+pom = push origin master
+df = diff
+br = branch
+a = add
+co = checkout
+rp = remote prune
+st = status
+cp = cherry-pick
+g = grep --break --heading --line-number
+ci = commit
+lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)an>%Creset' --abbrev-commit
+ls = ls-files
+rbm = !git fetch origin master && git rebase origin/master
+
+[push]
+default = current
