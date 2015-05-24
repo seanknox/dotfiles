@@ -14,12 +14,13 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zhistory
 
+setopt NO_NOMATCH
+
 # Customize to your needs...
 
 # MAKE_OPTS to use 4 cores
 export MAKE_OPTS="-j 8 -O3"
 
-export JAVA_HOME="$(/usr/libexec/java_home)"
 export EC2_HOME="/opt/boxen/homebrew/Cellar/ec2-api-tools/1.6.13.0/libexec"
 #export EC2_URL=https://ec2.us-west-1.amazonaws.com
 export GREP_OPTIONS='--color=auto'
