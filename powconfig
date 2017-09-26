@@ -1,7 +1,0 @@
-# $RBENV_ROOT should be set somewhere, like .zshenv
-# currently setting it boxen's env script:
-# [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
-
-export PATH=bin:$RBENV_ROOT/shims:$RBENV_ROOT/bin:$PATH
-export POW_DOMAINS=dev,local
-export POW_TIMEOUT=3600
