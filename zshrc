@@ -59,9 +59,11 @@ eval "$(pyenv init -)"
 
 alias k="kubectl"
 alias kubever="kubectl get nodes -o=jsonpath=$'{range .items[*]}{@.metadata.name}: {@.status.nodeInfo.kubeletVersion}\n{end}'"
+alias az-dev='docker run -v /Users/${USER}:/root -v ${PWD}:/pwd -it --rm mboersma/azure-cli:latest az'
+alias az-dev-update='docker pull mboersma/azure-cli:latest'
 
 export GOPATH=$(go env GOPATH)
 export PATH=$GOPATH/bin:/usr/local/opt/coreutils/libexec/gnubin:$PATH:/Users/${USER}/bin
 
 source "/Users/${USER}/lib/azure-cli/az.completion"
-source /usr/local/Cellar/autoenv/0.2.1/activate.sh
+eval "$(direnv hook zsh)"
