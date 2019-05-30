@@ -1,0 +1,67 @@
+[user]
+  name = Sean Knox
+  email = knoxville@gmail.com
+  initials = SK
+[push]
+  default = current
+
+[alias]
+  co = checkout
+  ci = commit
+  br = branch
+  hist = log --pretty=format:'%Cgreen%h%Creset %Cblue%ad%Creset %C(magenta)%cn%Creset%C(yellow)%d%Creset%n        %s' --graph --date=local
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  rpo = remote prune origin
+  unstage = reset HEAD
+  pr = pull --rebase
+  cp = cherry-pick
+  pom = push origin master
+  df = diff
+  a = add
+  g = grep --break --heading --line-number
+  rp = remote prune
+  gpc = push --set-upstream origin $(git-branch-current 2> /dev/null)
+  aa = add --all
+  ls = ls-files
+  rbm = !git fetch origin master && git rebase origin/master
+  old-branches = "!old_branches() { for branch in `git branch -r | grep -v HEAD`; do echo -e `git show --format=\"%ci %cr\" $branch | head -n 1` \\t$branch; done | sort -r; }; old_branches;"
+  st = status
+  s = status
+  rcm = commit -c HEAD --reset-author
+  gr = grep --break --heading --line-number
+  recent-commits = "!recent_commits() { git log --pretty=format:\"%ad -- %an -- %d -- %B\" --date=relative --branches --since=7.days.ago --author=\"$1\"; }; recent_commits"
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)>%Creset' --abbrev-commit
+  wip = !git add . && git commit -m 'wip'
+  amend = !git add . && git commit --amend --no-edit
+  rim = !git rebase -i origin/master
+  todo  = grep --heading --break --ignore-case -e 'TODO: *'
+  fixme = grep --heading --break --ignore-case -e 'FIX: *' -e 'FIXME: *'
+
+[push]
+  default = current
+
+[hub]
+protocol = https
+
+[credential]
+
+[core]
+autocrlf = input
+
+[difftool]
+prompt = false
+
+[grep]
+linenumber = true
+
+[branch]
+autosetuprebase = always
+
+[pager]
+branch = false
+
+[color]
+ui = auto
+[github]
+  username = seanknox
+
