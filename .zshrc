@@ -62,3 +62,6 @@ export PATH=$GOPATH/bin:/usr/local/opt/coreutils/libexec/gnubin:$PATH:/Users/${U
 
 source "/Users/${USER}/lib/azure-cli/az.completion"
 eval "$(direnv hook zsh)"
+
+# fix globbing in zsh
+unsetopt nomatch
