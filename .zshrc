@@ -51,16 +51,11 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew kubectl osx pip)
+plugins=(git brew osx pip)
 
 source $ZSH/oh-my-zsh.sh
 
 eval "$(pyenv init -)"
-
-alias k="kubectl"
-alias kubever="kubectl get nodes -o=jsonpath=$'{range .items[*]}{@.metadata.name}: {@.status.nodeInfo.kubeletVersion}\n{end}'"
-alias az-dev='docker run -v /Users/${USER}:/root -v ${PWD}:/pwd -it --rm mboersma/azure-cli:latest az'
-alias az-dev-update='docker pull mboersma/azure-cli:latest'
 
 export GOPATH=$(go env GOPATH)
 export PATH=$GOPATH/bin:/usr/local/opt/coreutils/libexec/gnubin:$PATH:/Users/${USER}/bin
