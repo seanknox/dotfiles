@@ -7,7 +7,13 @@ export NVM_DIR="$HOME/.nvm"
 export PATH=~/.rbenv/shims:$PATH
 eval "$(rbenv init -)"
 
-alias be="bundle exec"
+alias be='bundle exec'
+alias gp='git push'
+alias l='ls -lah'
+alias la='ls -lAh'
+alias ll='ls -lh'
+alias ls='ls -G'
+alias lsa='ls -lah'
 
 ## add bin/ and $HOME/bin to PATH
 export PATH=bin:$HOME/bin:$PATH
