@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 
 # Navigate the a folder where we can download the zsh-syntax-highlighting script
 
@@ -13,5 +13,6 @@
 
   # Add a startup script to your .zshrc to enable syntax highlighting in new shell sessions
 
-  echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> "${HOME}/.zshrc"
+  echo "# shellcheck disable=SC1091
+source /usr/local/share/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> "${HOME}/.zshrc"
 )
