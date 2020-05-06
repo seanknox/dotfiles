@@ -13,6 +13,7 @@ nvm install node
 LATEST_RUBY=$(rbenv install -l | grep -v - | tail -1)
 rbenv install -s $LATEST_RUBY
 rbenv global $LATEST_RUBY
+echo "gem: --no-document" >> ~/.gemrc
 
 for x in install-*.sh; do
  sh -c "./${x}"
