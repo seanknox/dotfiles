@@ -2,8 +2,11 @@
 
 set -e
 
+cp .zshrc ~
+cp .hyper.js ~/
+cp .gitconfig ~/
+
 for x in install-*.sh; do
   sh -c "./${x}"
 done
 
-cp .hyper.js ~/
