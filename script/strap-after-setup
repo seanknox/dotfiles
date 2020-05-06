@@ -7,10 +7,14 @@ cp .hyper.js ~/
 cp .gitconfig ~/
 
 source ~/.zshrc
-
+# install latest stable node
 nvm install node
+# install latest stable ruby
+LATEST_RUBY=$(rbenv install -l | grep -v - | tail -1)
+rbenv install -s $LATEST_RUBY
+rbenv global $LATEST_RUBY
 
-#for x in install-*.sh; do
-#  sh -c "./${x}"
-#done
+for x in install-*.sh; do
+ sh -c "./${x}"
+done
 
