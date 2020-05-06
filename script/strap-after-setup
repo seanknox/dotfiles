@@ -7,4 +7,3 @@ for x in install-*.sh; do
 done
 
 cp .hyper.js ~/
-cp Brewfile ~/
