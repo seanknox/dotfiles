@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 
 set -e
 
@@ -6,7 +6,11 @@ cp .zshrc ~
 cp .hyper.js ~/
 cp .gitconfig ~/
 
-for x in install-*.sh; do
-  sh -c "./${x}"
-done
+source ~/.zshrc
+
+nvm install node
+
+#for x in install-*.sh; do
+#  sh -c "./${x}"
+#done
 
