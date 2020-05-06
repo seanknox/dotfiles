@@ -19,6 +19,8 @@ alias la='ls -lAh'
 alias ll='ls -lh'
 alias ls='ls -G'
 alias lsa='ls -lah'
+alias l='colorls --group-directories-first --almost-all'
+alias ll='colorls --group-directories-first --almost-all --long' # detailed list view
 
 ## add bin/ and $HOME/bin to PATH
 export PATH=bin:$HOME/bin:$PATH
