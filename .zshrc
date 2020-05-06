@@ -3,6 +3,12 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
 
+# Set window title to command just before running it.
+preexec() { printf "\x1b]0;%s\x07" "$1"; }
+
+# Set window title to current working directory after returning from a command.
+precmd() { printf "\x1b]0;%s\x07" "$PWD" }
+
 ## setup nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
