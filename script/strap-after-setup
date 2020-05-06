@@ -5,6 +5,7 @@ set -e
 cp .zshrc ~
 cp .hyper.js ~/
 cp .gitconfig ~/
+cp .pryrc ~/
 
 source ~/.zshrc
 # install latest stable node
@@ -14,6 +15,12 @@ LATEST_RUBY=$(rbenv install -l | grep -v - | tail -1)
 rbenv install -s $LATEST_RUBY
 rbenv global $LATEST_RUBY
 echo "gem: --no-document" >> ~/.gemrc
+gem install \
+    pry \
+    pry-theme \
+    pry-byebug \
+    solargraph \
+    awesome_print
 
 for x in install-*.sh; do
  sh -c "./${x}"
