@@ -11,4 +11,4 @@ I use [strap](https://github.com/MikeMcQuaid/strap) which uses this repo to auto
 - Add :rainbow: to `ls` with [colorls](https://github.com/athityakumar/colorls)
 - Setup a number of MacOS settings helpful for developers (faster key repeat rate, don't put computer into sleep mode, etc.)
 
-Everything aside from Homebrew installation is run at the end of the strap process via [strap-after-setup](./scripts/strap-after-setup).
+Everything aside from Homebrew installation is run at the end of the strap process via [strap-after-setup](./script/strap-after-setup).
