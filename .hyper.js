@@ -134,6 +134,7 @@ module.exports = {
     "hyper-tab-icons",
     "hyperline",
     "hyperterm-paste",
+    "hyperterm-mactabs"
   ],
 
   // in development, you can create a directory under
@@ -144,6 +145,6 @@ module.exports = {
   keymaps: {
     // Examplehh
     // 'window:devtools': 'cmd+alt+o'
-  }
+  },
 
 };
