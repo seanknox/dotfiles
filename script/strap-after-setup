@@ -15,6 +15,10 @@ LATEST_RUBY=$(rbenv install -l | grep -v - | tail -1)
 rbenv install -s $LATEST_RUBY
 rbenv global $LATEST_RUBY
 echo "gem: --no-document" >> ~/.gemrc
+# set some default bundler settings
+bundle config path vendor/bundle --global
+bundle config cache_all true --global
+bundle config jobs 32 --global
 gem install \
     pry \
     pry-theme \
