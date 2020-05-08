@@ -7,7 +7,7 @@ setopt appendhistory
 preexec() { printf "\x1b]0;%s\x07" "$1"; }
 
 # Set window title to current working directory after returning from a command.
-precmd() { printf "\x1b]0;%s\x07" "$PWD" }
+precmd() { printf "\x1b]0;%s\x07" "$PWD"; }
 
 ## setup nvm
 export NVM_DIR="$HOME/.nvm"
