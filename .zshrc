@@ -56,6 +56,7 @@ eval "$(rbenv init -)"
 
 alias be='bundle exec'
 alias gp='git push'
+alias gpf='git push --force-with-lease'
 alias l='ls -lah'
 alias la='ls -lAh'
 alias ll='ls -lh'
