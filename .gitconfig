@@ -15,7 +15,7 @@
   unstage = reset HEAD
   pr = pull --rebase
   cp = cherry-pick
-  pom = push origin master
+  pom = push origin main
   df = diff
   a = add
   g = grep --break --heading --line-number
@@ -23,7 +23,7 @@
   gpc = push --set-upstream origin $(git-branch-current 2> /dev/null)
   aa = add --all
   ls = ls-files
-  rbm = !git fetch origin master && git rebase origin/master
+  rbm = !git fetch origin main && git rebase origin/main
   old-branches = "!old_branches() { for branch in `git branch -r | grep -v HEAD`; do echo -e `git show --format=\"%ci %cr\" $branch | head -n 1` \\t$branch; done | sort -r; }; old_branches;"
   st = status
   s = status
@@ -33,7 +33,7 @@
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)>%Creset' --abbrev-commit
   wip = !git add . && git commit -m 'wip'
   amend = !git add . && git commit --amend --no-edit
-  rim = !git rebase -i origin/master
+  rim = !git rebase -i origin/main
   todo  = grep --heading --break --ignore-case -e 'TODO: *'
   fixme = grep --heading --break --ignore-case -e 'FIX: *' -e 'FIXME: *'
 
