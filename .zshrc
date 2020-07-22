@@ -67,3 +67,9 @@ alias ll='colorls --group-directories-first --almost-all --long' # detailed list
 
 ## add bin/ and $HOME/bin to PATH
 export PATH=bin:$HOME/bin:$PATH
+
+# Load Git completion
+zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
+fpath=(~/.zsh $fpath)
+
+autoload -Uz compinit && compinit
