@@ -7,6 +7,10 @@ cp .hyper.js ~/
 cp .gitconfig ~/
 cp .pryrc ~/
 
+# setup git autocompletion
+mkdir ~/.zsh
+cp git-completion.bash _git ~/.zsh
+
 source ~/.zshrc
 # install latest stable node
 nvm install node
