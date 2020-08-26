@@ -13,6 +13,6 @@
 
   # Add a startup script to your .zshrc to enable syntax highlighting in new shell sessions
 
-  echo "# shellcheck disable=SC1091
-source /usr/local/share/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> "${HOME}/.zshrc"
+  echo "\n# shellcheck disable=SC1091" >> "${HOME}/.zshrc"
+  echo "source /usr/local/share/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> "${HOME}/.zshrc"
 )
