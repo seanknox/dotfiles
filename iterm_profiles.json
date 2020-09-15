@@ -48,6 +48,7 @@
     "Blue Component" : 0.45882352941176469,
     "Green Component" : 0.43137254901960786
   },
+  "Use Cursor Guide" : false,
   "Ambiguous Double Width" : false,
   "Jobs to Ignore" : [
     "rlogin",
@@ -352,10 +353,11 @@
     "Green Component" : 0.21176470588235294
   },
   "Ansi 2 Color" : {
-    "Red Component" : 0.52156862745098043,
+    "Red Component" : 0.0070266565307974815,
     "Color Space" : "sRGB",
-    "Blue Component" : 0,
-    "Green Component" : 0.59999999999999998
+    "Blue Component" : 0.26840846394730988,
+    "Alpha Component" : 1,
+    "Green Component" : 0.868865966796875
   },
   "Ansi 7 Color" : {
     "Red Component" : 0.93333333333333335,
@@ -380,7 +382,7 @@
     "Color Space" : "sRGB",
     "Blue Component" : 0.73423302173614502,
     "Alpha Component" : 1,
-    "Green Component" : 0.35916060209274292
+    "Green Component" : 0.29749791960421135
   },
   "Ansi 0 Color" : {
     "Red Component" : 0.027450980392156862,
