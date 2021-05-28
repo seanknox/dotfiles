@@ -8,7 +8,7 @@ cp .gitconfig ~/
 cp .pryrc ~/
 
 # setup git autocompletion
-mkdir ~/.zsh
+mkdir -p ~/.zsh
 cp git-completion.bash _git ~/.zsh
 
 source ~/.zshrc
@@ -36,7 +36,7 @@ done
 
 chsh -s /bin/zsh
 
-mkdir ~/src
+mkdir -p ~/src
 
 # Never go into computer sleep mode
 sudo systemsetup -setcomputersleep Off > /dev/null
