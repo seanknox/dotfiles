@@ -48,15 +48,6 @@ preexec() { printf "\x1b]0;%s\x07" "$1"; }
 # Set window title to current working directory after returning from a command.
 precmd() { printf "\x1b]0;%s\x07" "$PWD"; }
 
-## setup nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-## setup rbenv
-export PATH=~/.rbenv/shims:$PATH
-eval "$(rbenv init -)"
-
 alias be='bundle exec'
 alias gp='git push'
 alias gpf='git push --force-with-lease'
@@ -83,3 +74,14 @@ zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
 fpath=(~/.zsh $fpath)
 
 autoload -Uz compinit && compinit
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+## setup nvm
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+## setup rbenv
+export PATH=~/.rbenv/shims:$PATH
+eval "$(rbenv init -)"
