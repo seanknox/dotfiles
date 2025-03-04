@@ -1,15 +1,3 @@
-[push]
-default = current
-
-# default to personal config
-[include]
-  path = ~/.gitconfig.personal
-
-# when working on work projects
-[includeIf "gitdir:**/src/openphone/**/.git"]
-  path = ~/.gitconfig.work
-
-
 [alias]
 co = checkout
 ci = commit
@@ -28,7 +16,7 @@ rp = remote prune
 gpc = push --set-upstream origin $(git-branch-current 2>/dev/null)
 aa = add --all
 ls = ls-files
-rbm = !git fetch origin master && git rebase origin/master
+rbm = !git fetch origin main && git rebase origin/main
 old-branches = "!old_branches() { for branch in $(git branch -r | grep -v HEAD); do echo -e $(git show --format=\"%ci %cr\" $branch | head -n 1) \\t$branch; done | sort -r; }; old_branches;"
 st = status
 s = status
@@ -42,16 +30,12 @@ rim = !git rebase -i origin/master
 todo = grep --heading --break --ignore-case -e 'TODO: *'
 fixme = grep --heading --break --ignore-case -e 'FIX: *' -e 'FIXME: *'
 
-[push]
-default = current
-
 [hub]
 protocol = https
 
-[credential]
-
 [core]
 autocrlf = input
+excludesfile = /Users/sean.knox/.gitignore
 
 [difftool]
 prompt = false
@@ -61,6 +45,7 @@ linenumber = true
 
 [branch]
 autosetuprebase = always
+sort = -committerdate
 
 [pager]
 branch = false
@@ -69,3 +54,37 @@ branch = false
 ui = auto
 [github]
 username = seanknox
+[user]
+  name = Sean Knox
+  email = knoxville@hey.com
+  initials = SK
+[column]
+	ui = auto
+[tag]
+	sort = version:refname
+[init]
+	defaultBranch = main
+[diff]
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
+[push]
+	default = simple
+	autoSetupRemote = true
+	followTags = true
+[fetch]
+	prune = true
+	pruneTags = true
+	all = true
+[help]
+	autocorrect = prompt
+[commit]
+	verbose = true
+[rerere]
+	enabled = true
+	autoupdate = true
+[rebase]
+	autoSquash = true
+	autoStash = true
+	updateRefs = true
