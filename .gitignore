@@ -1,1 +1,58 @@
+# Nix build outputs
+result
+result-*
+
+# Nix store paths
+/nix/store
+
+**/flake.lock
+
+# direnv environment cache
+.direnv/
+
+# Nix development shell files
+.envrc.local
+
+# Temporary Nix files
+*.qcow2
+*.img
+
+# Devenv
+.devenv*
+devenv.local.nix
+
+# Nix flake inputs that are fetched on demand
+.nix-defexpr/
+.nix-profile/
+
+# Nix garbage collection roots
+.gcroots/
+
+# Nix logs
+nix-support/
+
+# Nix temporary files
+.tmp/
+
+# Nix build cache
+.cache/
+
+# Nix shell history
+.nix-repl-history
+
+# Nix shell GC roots
+.nix-gcroots/
+
+# Nix shell profiles
+.nix-shell-profile/
+
+# Editor-specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS-specific files
 .DS_Store
+Thumbs.db

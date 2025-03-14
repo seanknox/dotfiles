@@ -1,6 +1,10 @@
-{ config, pkgs, username ? (builtins.getEnv "USER"), ... }:
+{ config, pkgs, ... }:
 
-{
+let
+  # Get username at runtime
+  username = builtins.getEnv "USER";
+  homeDirectory = "/Users/${username}";
+in {
   # System-wide settings
   system.defaults = {
     # Dock settings
@@ -82,7 +86,11 @@
     enable = true;
     onActivation = {
       autoUpdate = true;
-      cleanup = "zap"; # Remove all unmanaged packages
+      # Use 'uninstall' instead of 'zap' for a more conservative approach
+      # 'zap' removes all unmanaged packages, while 'uninstall' only removes packages that conflict
+      # cleanup = "uninstall"; 
+      # Upgrade packages on activation
+      upgrade = true;
     };
     
     # Keep these packages managed by Homebrew for now
@@ -106,21 +114,25 @@
       "whatsapp"
     ];
     
-    # Homebrew fonts
-    taps = [
-      "homebrew/cask-fonts"
-    ];
+    # Homebrew taps
+    taps = [];
     
     caskArgs = {
       appdir = "~/Applications";
     };
+    
+    # Set to true to avoid unexpected behavior with existing Homebrew packages
+    global.brewfile = true;
   };
   
   # Enable fonts
-  fonts.fontDir.enable = true;
+  # fonts.fontDir.enable = true;
   
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  
+  # Set the nixbld group ID to match the actual value on the system
+  ids.gids.nixbld = 350;
   
   # This value determines the nix-darwin release that your configuration is
   # compatible with. This helps avoid breakage when a new nix-darwin release

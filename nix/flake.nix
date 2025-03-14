@@ -19,59 +19,17 @@
   };
 
   outputs = { self, nixpkgs, home-manager, darwin, ... }@inputs:
-    let
-      # Get system type (aarch64-darwin for Apple Silicon, x86_64-darwin for Intel)
-      system = builtins.currentSystem;
-      pkgs = nixpkgs.legacyPackages.${system};
-      
-      # This will create configurations for any username
-      mkConfig = { 
-        username,
-        system ? builtins.currentSystem,
-        homeDirectory ? "/Users/${username}"
-      }: {
-        # Home Manager configuration
-        homeConfig = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [ 
-            ./home.nix
-            {
-              # Pass these as configuration values that can be accessed in home.nix
-              home = {
-                inherit username homeDirectory;
-              };
-            }
-          ];
-          extraSpecialArgs = { inherit inputs username homeDirectory; };
-        };
-        
-        # Darwin configuration (for macOS settings)
-        darwinConfig = darwin.lib.darwinSystem {
-          inherit system;
-          modules = [ 
-            ./darwin-configuration.nix
-            home-manager.darwinModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.${username} = import ./home.nix;
-              # Pass these values to home-manager module
-              home-manager.extraSpecialArgs = {
-                inherit username homeDirectory;
-              };
-            }
-          ];
-          specialArgs = { inherit inputs username homeDirectory; };
-        };
+    {
+      # Default configuration that can be used regardless of hostname or username
+      darwinConfigurations.default = darwin.lib.darwinSystem {
+        system = "aarch64-darwin"; # Change to x86_64-darwin for Intel Macs
+        modules = [ 
+          ./darwin-configuration.nix
+          {
+            # Disable nix management by nix-darwin to prevent conflicts with Determinate Systems
+            nix.enable = false;
+          }
+        ];
       };
-    in {
-      # Get current user from environment
-      homeConfigurations."current" = (mkConfig { 
-        username = builtins.getEnv "USER";
-      }).homeConfig;
-      
-      darwinConfigurations."current" = (mkConfig { 
-        username = builtins.getEnv "USER";
-      }).darwinConfig;
     };
 } 
