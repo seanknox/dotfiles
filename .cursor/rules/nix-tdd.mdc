@@ -1,0 +1,100 @@
+---
+description: nix tdd workflow
+globs: 
+alwaysApply: false
+---
+# Nix TDD Workflow
+
+## Description
+
+This rule defines a Test-Driven Development workflow for Nix configuration changes. It ensures that all changes to Nix configuration files are properly tested before being applied to the system.
+
+## When to Use
+
+Apply this workflow when:
+- Adding new packages to your Nix configuration
+- Modifying system settings in darwin-configuration.nix
+- Changing shell configurations or dotfiles
+- Adding new development tools or environments
+
+## Workflow Steps
+
+### 1. Syntax and Package Validation
+
+Before making substantial changes or booting a VM:
+
+```bash
+cd ~/.dotfiles/nix-test
+./test-nix-config.sh
+# Select option 1: Validate flake.nix syntax
+```
+
+### 2. Test Configuration Building
+
+After confirming syntax is correct:
+
+```bash
+cd ~/.dotfiles/nix-test
+./test-nix-config.sh
+# Select option 2: Test home-manager configuration
+```
+
+### 3. Test Darwin Configuration (if applicable)
+
+If changing macOS-specific settings:
+
+```bash
+cd ~/.dotfiles/nix-test
+./test-nix-config.sh
+# Select option 3: Test nix-darwin configuration
+```
+
+### 4. VM Testing for Major Changes
+
+For significant changes, test in a macOS VM:
+1. Boot the macOS VM in UTM
+2. Pull the latest changes in the VM
+3. Apply the configuration with `darwin-rebuild switch`
+4. Verify with `./nix-test/verify-config.sh`
+
+### 5. Apply to Real System
+
+After successful testing:
+
+```bash
+cd ~/.dotfiles
+darwin-rebuild switch
+```
+
+### 6. Verify Deployment
+
+Confirm changes were applied correctly:
+
+```bash
+cd ~/.dotfiles/nix-test
+./verify-config.sh
+```
+
+## Best Practices
+
+- **Incremental Changes**: Make small, focused changes and test each one
+- **Commit Often**: Commit working changes with descriptive messages
+- **Document Packages**: Add comments explaining why packages are included
+- **Test Conditionally**: Use the `isTest` flag for system-changing operations
+- **Snapshot VM**: Create VM snapshots before major configuration changes
+
+## Example: Adding a New Package
+
+1. Edit `~/.dotfiles/nix/home.nix` to add the package
+2. Run syntax check with `test-nix-config.sh` (option 1)
+3. Test package resolution with `test-nix-config.sh` (option 2)
+4. Apply and verify in VM for major changes
+5. Apply to real system with `darwin-rebuild switch`
+6. Verify with `verify-config.sh`
+
+## Troubleshooting
+
+- **Package Not Found**: Check package name in nixpkgs repository
+- **Build Errors**: Look for syntax errors or missing dependencies
+- **Darwin Errors**: Ensure macOS settings use correct property names
+- **Verification Failures**: Check logs in `~/.nix/var/log/nix/darwin-rebuild.log` 
