@@ -133,8 +133,8 @@ in {
   # # Set the nixbld group ID to match the actual value on the system
   # ids.gids.nixbld = 350;
   
-  # This value determines the nix-darwin release that your configuration is
-  # compatible with. This helps avoid breakage when a new nix-darwin release
-  # introduces backwards incompatible changes.
+  # # This value determines the nix-darwin release that your configuration is
+  # # compatible with. This helps avoid breakage when a new nix-darwin release
+  # # introduces backwards incompatible changes.
   system.stateVersion = 6;
 } 

@@ -143,43 +143,43 @@
     };
   };
 
-  # ZSH configuration
-  programs.zsh = {
-    enable = true;
-    enableAutosuggestions = true;
-    enableCompletion = true;
+  # # ZSH configuration
+  # programs.zsh = {
+  #   enable = true;
+  #   enableAutosuggestions = true;
+  #   enableCompletion = true;
     
-    # History settings from your current .zshrc
-    history = {
-      size = 50000;
-      save = 10000;
-      ignoreDups = true;
-      ignoreSpace = true;
-      expireDuplicatesFirst = true;
-      share = true;
-    };
+  #   # History settings from your current .zshrc
+  #   history = {
+  #     size = 50000;
+  #     save = 10000;
+  #     ignoreDups = true;
+  #     ignoreSpace = true;
+  #     expireDuplicatesFirst = true;
+  #     share = true;
+  #   };
     
-    # Shell options
-    initExtra = ''
-      # Set window title to command just before running it.
-      preexec() { printf "\x1b]0;%s\x07" "$1"; }
+  #   # Shell options
+  #   initExtra = ''
+  #     # Set window title to command just before running it.
+  #     preexec() { printf "\x1b]0;%s\x07" "$1"; }
       
-      # Set window title to current working directory after returning from a command.
-      precmd() { printf "\x1b]0;%s\x07" "$PWD"; }
+  #     # Set window title to current working directory after returning from a command.
+  #     precmd() { printf "\x1b]0;%s\x07" "$PWD"; }
       
-      # activate bash-style comments on the command line
-      setopt interactivecomments
-    '';
-  };
+  #     # activate bash-style comments on the command line
+  #     setopt interactivecomments
+  #   '';
+  # };
 
-  # FZF configuration (replacing your install-fzf.sh)
-  programs.fzf = {
-    enable = true;
-    enableZshIntegration = true;
-  };
+  # # FZF configuration (replacing your install-fzf.sh)
+  # programs.fzf = {
+  #   enable = true;
+  #   enableZshIntegration = true;
+  # };
 
-  # Create a basic configuration for other tools
-  programs.bat.enable = true;
+  # # Create a basic configuration for other tools
+  # programs.bat.enable = true;
   
   # This section will be expanded in future phases
   # For now, we're just setting up the basics
