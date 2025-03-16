@@ -1,70 +1,69 @@
-# Nix Configuration for macOS
+# Nix Configuration
 
-This repository contains a declarative Nix configuration for macOS using nix-darwin and Home Manager.
+This repository contains a streamlined Nix configuration for setting up a macOS development environment with nix-darwin and Home Manager.
 
-## Setup
+## Quick Start
 
-The `setup.sh` script automates the installation and configuration process:
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/yourusername/dotfiles.git ~/.dotfiles
+   cd ~/.dotfiles
+   ```
 
-1. Installs Xcode Command Line Tools (if needed)
-2. Installs Nix using the Determinate Systems installer
-3. Installs nix-darwin using the modern flakes approach
-4. Applies the configuration using flakes
+2. Run the setup script:
+   ```bash
+   ./setup.sh
+   ```
 
-To get started:
+The setup script will:
+- Install Xcode Command Line Tools
+- Install Nix with flakes enabled
+- Set up and configure nix-darwin
+- Apply the default configuration
 
+## What's Included
+
+- **Nix**: The purely functional package manager
+- **nix-darwin**: For managing macOS system configuration
+- **Home Manager**: For managing user environment
+
+## After Installation
+
+After running the setup script, you'll need to restart your terminal or run:
 ```bash
-# Clone the repository
-git clone <your-repo-url> ~/.dotfiles
-cd ~/.dotfiles
-
-# Make the setup script executable
-chmod +x setup.sh
-
-# Run the setup script
-./setup.sh
+exec $SHELL
 ```
 
-## Configuration Structure
+## Updating Your Configuration
 
-- `nix/flake.nix`: The main entry point for the Nix configuration
-- `nix/darwin-configuration.nix`: macOS system settings managed by nix-darwin
-- `nix/home-test.nix`: User environment settings managed by Home Manager
+To apply changes to your configuration:
 
-## Recent Changes
+1. Make sure you're in the repository directory:
+   ```bash
+   cd ~/.dotfiles
+   ```
 
-- Updated to use the modern flakes-based approach for installing nix-darwin
-- Added `nix.enable = false` to prevent conflicts with the Determinate Systems Nix installer
-- Removed the outdated bootstrap configuration approach
-- Simplified the setup process
+2. Run:
+   ```bash
+   darwin-rebuild switch --flake .#default
+   ```
 
-## Troubleshooting
+## Structure
 
-If you encounter issues with the setup script:
-
-1. Make sure you have internet connectivity
-2. Check that you have sufficient permissions
-3. If the script fails at the nix-darwin installation step, you can try running the commands manually:
-
-```bash
-# Install nix-darwin using flakes
-nix run nix-darwin --experimental-features "nix-command flakes" -- switch --flake .
-
-# Or alternatively
-nix build .#darwinConfigurations.current.system --experimental-features "nix-command flakes"
-./result/sw/bin/darwin-rebuild switch --flake .
-```
+- `setup.sh`: Bootstrap script for first-time setup
+- `flake.nix`: The entry point for the Nix configuration
+- `home.nix`: Home Manager configuration for user environment
+- `darwin-configuration.nix`: macOS-specific settings
 
 ## Customization
 
-To customize your configuration:
+- To add new packages, edit the `home.packages` list in `home.nix`
+- To modify macOS settings, edit `darwin-configuration.nix`
+- To update the configuration, run the appropriate build command again
 
-1. Edit `nix/darwin-configuration.nix` for macOS system settings
-2. Edit `nix/home-test.nix` for user environment settings
-3. Run `darwin-rebuild switch --flake .` to apply changes
+## Troubleshooting
 
-## References
-
-- [nix-darwin](https://github.com/LnL7/nix-darwin)
-- [Home Manager](https://github.com/nix-community/home-manager)
-- [Determinate Systems Nix Installer](https://determinate.systems/posts/nix-darwin-updates/)
+- If you encounter issues with the Nix daemon, try restarting it:
+  ```bash
+  sudo launchctl kickstart -k system/org.nixos.nix-daemon
+  ```

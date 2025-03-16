@@ -1,0 +1,15 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# 
+## Description
+
+All tooling in this repo is meant to be run on a MacOS or Linux machine. They involve real commands that
+when executed can cause irrepairably damage the system. 
+
+## When to Use
+
+- Be careful! These commands run on a computer. ASK for permission every time when running a command. Never assume it is ok. 
+- The commands change the system configuration: dotfiles, nix, system files. They require a human operator to verify and execute. 
