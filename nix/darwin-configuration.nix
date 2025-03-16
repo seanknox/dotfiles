@@ -81,61 +81,60 @@ in {
     defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
   '';
   
-  # Homebrew integration (for packages that can't be managed by Nix)
-  homebrew = {
-    enable = true;
-    onActivation = {
-      autoUpdate = true;
-      # Use 'uninstall' instead of 'zap' for a more conservative approach
-      # 'zap' removes all unmanaged packages, while 'uninstall' only removes packages that conflict
-      # cleanup = "uninstall"; 
-      # Upgrade packages on activation
-      upgrade = true;
-    };
+  # homebrew = {
+  #   enable = true;
+  #   onActivation = {
+  #     autoUpdate = true;
+  #     # Use 'uninstall' instead of 'zap' for a more conservative approach
+  #     # 'zap' removes all unmanaged packages, while 'uninstall' only removes packages that conflict
+  #     # cleanup = "uninstall"; 
+  #     # Upgrade packages on activation
+  #     upgrade = true;
+  #   };
     
-    # Keep these packages managed by Homebrew for now
-    # We'll migrate them to Nix in later phases
-    casks = [
-      "1password"
-      "alfred"
-      "docker"
-      "dropbox"
-      "google-chrome"
-      "iterm2"
-      "signal"
-      "transmission"
-      "protonvpn"
-      "bartender"
-      "cursor"
-      "rectangle"
-      "zoom"
-      "warp"
-      "arc"
-      "whatsapp"
-    ];
+  #   # Keep these packages managed by Homebrew for now
+  #   # We'll migrate them to Nix in later phases
+  #   casks = [
+  #     # "1password"
+  #     # "alfred"
+  #     # "docker"
+  #     # "dropbox"
+  #     # "google-chrome"
+  #     # "iterm2"
+  #     # "signal"
+  #     # "transmission"
+  #     # "protonvpn"
+  #     # "bartender"
+  #     # "cursor"
+  #     # "rectangle"
+  #     # "zoom"
+  #     # "warp"
+  #     # "arc"
+  #     # "whatsapp"
+  #   ];
     
-    # Homebrew taps
-    taps = [];
+  #   # Homebrew taps
+  #   taps = [];
     
-    caskArgs = {
-      appdir = "~/Applications";
-    };
+  #   caskArgs = {
+  #     appdir = "~/Applications";
+  #   };
     
-    # Set to true to avoid unexpected behavior with existing Homebrew packages
-    global.brewfile = true;
-  };
+  #   # Set to true to avoid unexpected behavior with existing Homebrew packages
+  #   # global.brewfile = true;
+  # };
   
-  # Enable fonts
-  # fonts.fontDir.enable = true;
+  # # Enable fonts
+  # # fonts.fontDir.enable = true;
   
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  # # Allow unfree packages
+  # nixpkgs.config.allowUnfree = true;
   
-  # Set the nixbld group ID to match the actual value on the system
-  ids.gids.nixbld = 350;
+  # # Set the nixbld group ID to match the actual value on the system
+  # ids.gids.nixbld = 350;
   
   # This value determines the nix-darwin release that your configuration is
   # compatible with. This helps avoid breakage when a new nix-darwin release
   # introduces backwards incompatible changes.
-  system.stateVersion = 4;
+  system.stateVersion = 6;
 } 
