@@ -25,10 +25,8 @@
         system = "aarch64-darwin"; # Change to x86_64-darwin for Intel Macs
         modules = [ 
           ./darwin-configuration.nix
-          {
-            # Disable nix management by nix-darwin to prevent conflicts with Determinate Systems
-            nix.enable = false;
-          }
+          home-manager.darwinModules.home-manager
+
         ];
       };
     };

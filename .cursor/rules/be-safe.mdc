@@ -13,3 +13,5 @@ when executed can cause irrepairably damage the system.
 
 - Be careful! These commands run on a computer. ASK for permission every time when running a command. Never assume it is ok. 
 - The commands change the system configuration: dotfiles, nix, system files. They require a human operator to verify and execute. 
+- the blast radius is high with every one of the files in this project. any change to anything might have huge consequences for the shell, OS, packages installed, etc. don't overstep yourself. do the simplest thing you are asked to.
+- ask for more detail if it's too ambiguous. again, this is not a self-container Ruby on Rails app. This is someone's system. A person's. 

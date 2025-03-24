@@ -1,35 +1,28 @@
-{ config, pkgs, username ? (builtins.getEnv "USER"), homeDirectory ? "/Users/${builtins.getEnv "USER"}", ... }:
+{ config, pkgs, user, ... }:
 
 {
-  # Home Manager needs a bit of information about you and the paths it should manage
-  # These values will be provided by flake.nix or fall back to environment variables
-  home.username = username;
-  home.homeDirectory = homeDirectory;
-  
-  # This value determines the Home Manager release that your configuration is
-  # compatible with. This helps avoid breakage when a new Home Manager release
-  # introduces backwards incompatible changes.
-  home.stateVersion = "23.11"; # Please read the comment before changing
+  home.username = user;
+  home.homeDirectory = "/Users/${user}";
+  home.stateVersion = "23.11";
 
-  # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
   # Packages to install
-  home.packages = with pkgs; [
-    # CLI tools from your Brewfile
-    jq
-    go
-    shellcheck
-    wget
-    bat
-    htop
-    fd
+  # home.packages = with pkgs; [
+  #   # CLI tools from your Brewfile
+  #   jq
+  #   go
+  #   shellcheck
+  #   wget
+  #   bat
+  #   htop
+  #   fd
     
-    # Additional useful tools
-    ripgrep
-    tree
-    neofetch
-  ];
+  #   # Additional useful tools
+  #   ripgrep
+  #   tree
+  #   neofetch
+  # ];
 
   # Git configuration - ported from your existing .gitconfig
   programs.git = {
@@ -79,7 +72,7 @@
       
       core = {
         autocrlf = "input";
-        excludesfile = "${homeDirectory}/.gitignore";
+        excludesfile = "${config.home.homeDirectory}/.gitignore";
       };
       
       difftool.prompt = false;
@@ -140,6 +133,9 @@
       # Use conditional includes for machine-specific git config
       # This allows different git configs for different machines
       include.path = "~/.gitconfig.local";
+      
+      # Directory-specific configuration
+      "includeIf \"gitdir/i:~/src/zipline/**\"".path = "~/.gitconfig-zipline";
     };
   };
 
