@@ -50,13 +50,11 @@ precmd() { printf "\x1b]0;%s\x07" "$PWD"; }
 
 alias gp='git push'
 alias gpf='git push --force-with-lease'
-alias l='ls -lah'
-alias la='ls -lAh'
-alias ll='ls -lh'
-alias ls='ls -G'
-alias lsa='ls -lah'
-alias l='colorls --group-directories-first --almost-all'
-alias ll='colorls --group-directories-first --almost-all --long' # detailed list view
+alias ls='lsd'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
 alias cat='bat'
 alias ping='prettyping --nolegend'
 alias preview="fzf --preview 'bat --color \"always\" {}'"
