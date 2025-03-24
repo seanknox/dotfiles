@@ -14,6 +14,8 @@ EOF
 # Create NVM directory if it doesn't exist
 mkdir -p "$HOME/.nvm"
 
+source ~/.zshrc
+
 # install latest stable node
 nvm install node
 nvm use node
