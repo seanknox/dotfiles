@@ -2,8 +2,17 @@
 
 # Set of macOS system defaults for better development experience
 
-# Never go into computer sleep mode
-sudo systemsetup -setcomputersleep Off > /dev/null
+# Autohide the Dock when the mouse is out
+defaults write com.apple.dock "autohide" -bool "true" 
+
+# set default screenshot location to ~/Downloads
+defaults write com.apple.screencapture "location" -string "~/Downloads"
+
+# Disable Time Machine from prompting to use new hard drives as backup volume
+defaults write com.apple.TimeMachine "DoNotOfferNewDisksForBackup" -bool "true"
+
+# Disable the “Are you sure you want to open this application?” dialog
+defaults write com.apple.LaunchServices "LSQuarantine" -bool "false"
 
 # Disable smart quotes as they're annoying when typing code
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
