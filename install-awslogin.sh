@@ -2,7 +2,7 @@
 
 # This script appends AWS profile setup to ~/.zshrc
 
-# cat << 'EOF' >> ~/.zshrc
+cat << 'EOF' >> ~/.zshrc
 
 # Function to login to AWS SSO and set the profile
 awslogin() {
@@ -66,5 +66,5 @@ _aws_profiles() {
 
 # Register the completion function
 compdef _aws_profiles awslogin
-# EOF
+EOF
 
