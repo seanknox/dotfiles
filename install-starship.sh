@@ -2,4 +2,5 @@
 echo '#install starship' >> ~/.zshrc
 echo 'eval "$(starship init zsh)"' >> ~/.zshrc
 
-starship preset gruvbox-rainbow -o ~/.dotfiles/starship/gruvbox-rainbow.toml
+mkdir -p ~/.config/starship
+cp starship/gruvbox-rainbow-k8s.toml ~/.config/starship.toml   

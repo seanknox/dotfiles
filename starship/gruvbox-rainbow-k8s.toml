@@ -22,12 +22,15 @@ $python\
 [](fg:color_blue bg:color_bg3)\
 $docker_context\
 $conda\
-[](fg:color_bg3 bg:color_bg1)\
+[](fg:color_bg3 bg:color_purple)\
+$kubernetes\
+[](fg:color_purple bg:color_bg1)\
 $time\
 [ ](fg:color_bg1)\
 $line_break$character"""
 
 palette = 'gruvbox_dark'
+command_timeout = 500
 
 [palettes.gruvbox_dark]
 color_fg0 = '#fbf1c7'
@@ -167,3 +170,13 @@ vimcmd_symbol = '[](bold fg:color_green)'
 vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
 vimcmd_replace_symbol = '[](bold fg:color_purple)'
 vimcmd_visual_symbol = '[](bold fg:color_yellow)'
+
+[kubernetes]
+symbol = "󱃾 "
+format = '[[${symbol}${context}](fg:color_fg0 bg:${style})]($style)'
+style = "bg:color_purple"
+disabled = false
+
+[[kubernetes.contexts]]
+context_pattern = "^primary-production-.*$"
+style = "bg:color_red"
