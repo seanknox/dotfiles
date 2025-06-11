@@ -76,3 +76,6 @@ fpath=(~/.zsh $fpath)
 autoload -Uz compinit && compinit
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# use emacs keymap to fix terminal is vscode
+bindkey -e
