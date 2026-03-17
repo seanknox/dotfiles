@@ -77,5 +77,98 @@ autoload -Uz compinit && compinit
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# Return profile names from ~/.aws/config
+_aws_profile_list() {
+  local -a profiles
+  [[ -f ~/.aws/config ]] && profiles=($(grep '^\[profile' ~/.aws/config | sed -e 's/\[profile \(.*\)\]/\1/'))
+  [[ -f ~/.aws/config ]] && grep -q '^\[default\]' ~/.aws/config && profiles+=("default")
+  printf "%s\n" "${profiles[@]}"
+}
+
+# Interactive chooser that prints the selected profile
+_aws_pick_profile() {
+  local -a profiles
+  local -a display_profiles
+  local profile
+  local p
+  local account_id
+
+  profiles=("${(@f)$(_aws_profile_list)}")
+  if [[ ${#profiles[@]} -eq 0 ]]; then
+    echo "No AWS profiles found in ~/.aws/config" >&2
+    return 1
+  fi
+
+  for p in "${profiles[@]}"; do
+    account_id=""
+    if [[ "$p" == "default" ]]; then
+      account_id=$(\grep -A 10 '^\[default\]' ~/.aws/config | \grep 'sso_account_id' | head -1 | awk '{print $3}')
+    else
+      account_id=$(\grep -A 10 '^\[profile '"$p"'\]' ~/.aws/config | \grep 'sso_account_id' | head -1 | awk '{print $3}')
+    fi
+
+    if [[ -n "$account_id" ]]; then
+      display_profiles+=("$p ($account_id)")
+    else
+      display_profiles+=("$p")
+    fi
+  done
+
+  if command -v fzf >/dev/null 2>&1; then
+    profile=$(printf "%s\n" "${display_profiles[@]}" | fzf --prompt="AWS profile > " | sed -e 's/ (.*)$//')
+    [[ -n "$profile" ]] || return 1
+    printf "%s\n" "$profile"
+    return 0
+  fi
+
+  echo "Select an AWS profile:"
+  select display_profile in "${display_profiles[@]}"; do
+    if [[ -n "$display_profile" ]]; then
+      profile=$(echo "$display_profile" | sed -e 's/ (.*)$//')
+      printf "%s\n" "$profile"
+      return 0
+    fi
+    echo "Invalid selection. Please try again."
+  done
+}
+
+# Switch active AWS profile (arg or interactive selection)
+awsp() {
+  local profile="$1"
+
+  if [[ -z "$profile" ]]; then
+    profile="$(_aws_pick_profile)" || return 1
+  fi
+
+  export AWS_PROFILE="$profile"
+  echo "AWS profile set to $profile"
+}
+
+# Login to AWS SSO (defaults to AWS_PROFILE if set, otherwise prompts)
+awslogin() {
+  local profile="$1"
+
+  if [[ -z "$profile" ]]; then
+    if [[ -n "$AWS_PROFILE" ]]; then
+      profile="$AWS_PROFILE"
+    else
+      profile="$(_aws_pick_profile)" || return 1
+    fi
+  fi
+
+  aws sso login --profile "$profile"
+}
+
+# Simple autocomplete for AWS profiles
+_aws_profiles() {
+  local -a profiles
+  profiles=("${(@f)$(_aws_profile_list)}")
+  compadd -a profiles
+}
+
+# Register the completion function
+compdef _aws_profiles awslogin
+compdef _aws_profiles awsp
+
 # use emacs keymap to fix terminal is vscode
 bindkey -e

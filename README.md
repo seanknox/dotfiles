@@ -10,6 +10,7 @@ I use [strap](https://github.com/MikeMcQuaid/strap) which uses this repo to auto
 - Add :rainbow: to `ls` with [lsd](https://github.com/lsd-rs/lsd)
 - Install [fnm](https://github.com/Schniz/fnm)
 - Install [ghostty](https://ghostty.org/)
+- Configure AWS shell helpers: `awsp` for profile switching and `awslogin` for SSO login
 - Install my gitconfig preferences
 - Setup a number of MacOS settings helpful for developers (faster key repeat rate, don't put computer into sleep mode, etc.)
 
