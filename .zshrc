@@ -142,6 +142,11 @@ awsp() {
 
   export AWS_PROFILE="$profile"
   echo "AWS profile set to $profile"
+
+  if ! aws sts get-caller-identity --profile "$profile" >/dev/null 2>&1; then
+    echo "AWS credentials for $profile are not authenticated; running awslogin..."
+    awslogin "$profile"
+  fi
 }
 
 # Login to AWS SSO (defaults to AWS_PROFILE if set, otherwise prompts)
